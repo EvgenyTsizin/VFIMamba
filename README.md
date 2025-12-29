@@ -1,3 +1,40 @@
+# Custom VFIMamba - run_nx.py
+
+## Usage
+
+```bash
+python run_nx.py --img1 <path> --img2 <path> --n <frames> [options]
+```
+
+## Arguments
+
+| Argument | Default | Description |
+|----------|---------|-------------|
+| `--img1` | `example/frame_00083.png` | First input image |
+| `--img2` | `example/frame_00084.png` | Second input image |
+| `--n` | `32` | Total frames (power of 2: 2,4,8,16,32...) |
+| `--model` | `VFIMamba` | `VFIMamba` or `VFIMamba_S` |
+| `--resize` | `0.5` | Output scale (0.5 = 50%) |
+| `--output` | `example/output` | Output name (no .zip) |
+| `--keep_folder` | flag | Keep folder after zipping |
+
+## Examples
+
+```bash
+# Basic
+python run_nx.py --img1 a.png --img2 b.png --n 8
+
+# Full size, keep folder
+python run_nx.py --img1 a.png --img2 b.png --n 16 --resize 1.0 --keep_folder
+
+# Quick preview
+python run_nx.py --img1 a.png --img2 b.png --n 4 --resize 0.25
+```
+
+## Output
+
+- `<output>.zip` with `frame_00000.png` ... `frame_<n-1>.png`
+- PNG lossless format
 # [NeurIPS 2024] VFIMamba: Video Frame Interpolation with State Space Models [arxiv](https://arxiv.org/abs/2407.02315)
 
 > [**VFIMamba: Video Frame Interpolation with State Space Models**](https://arxiv.org/abs/2407.02315)<br>
